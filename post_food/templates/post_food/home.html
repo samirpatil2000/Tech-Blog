@@ -1,0 +1,29 @@
+{% extends "post_food/base.html"%}
+{% block body%}
+
+<div class="container">
+    {% for post in posts %}
+        <article class="'media content-section">
+          <!--<img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}"> -->
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ post.author }}</a>
+                    <small class="'text-muted">{{ post.timestamp|date:"F d, Y" }}</small>
+                </div>
+            </div>
+            <h2><a class="'article-title" href="#">{{ post.title }}</a> </h2>
+
+            <p class="article-content"></p>
+            <a href="#" class="btn btn-primary">Continue Reading</a>
+           <!-- <img class="rounded-circle article-img" src="{{ post.blog_image.url }}"> -->
+            <br>
+         </article>
+    <hr class="dash">
+    <hr class="dash">
+
+
+
+    {% endfor %}
+</div>
+
+{% endblock %}

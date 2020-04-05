@@ -1,0 +1,87 @@
+
+{% extends 'post_food/base.html'%}
+
+
+  {% block body %}
+
+    {% for cat in posts.0.categories.all %}
+<h1 class="container"><div class="category">Category {{cat.title}} </div></h1>
+    {% endfor %}
+    <div class="container">
+      <div class="row">
+        <!-- Latest Posts -->
+        <main class="posts-listing col-lg-8">
+          <div class="container">
+            <div class="row">
+              <!-- post -->
+
+
+                {% for post in posts %}
+              <div class="post col-xl-6">
+
+                 {% load static %}
+                <div class="post-thumbnail"><a href="{{ post.get_absolute_url }}"><img src="{{ post.thumbnail.url}}" alt="..."  width="200" height="200"></a></div>
+                <div class="post-details">
+<!--                  <div class="post-meta d-flex justify-content-between">-->
+<!--                    <div class="date meta-last">{{post.date_posted}}</div>-->
+<!--                      {% for cat in post.categories.all %}-->
+<!--                    <div class="category"><a href="#">{{cat.title}}</a></div>-->
+<!--                      {% endfor %}-->
+<!--                  </div>-->
+                    <header class="post-header">
+                          <div class="category">
+                            {% for cat in post.categories.all %}
+                              <a href="{{ cat.get_absolute_url }}">{{ cat.title }}</a>
+                            {% endfor %}
+                          </div>
+                        <h1 class="h4">{{ post.title }}</h1>
+                   </header>
+                    <a href="#">
+                  <p class="text-muted">{{ post.content|linebreaks|truncatechars:100 }}</p>
+                    <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Continue Reading</a>
+                    <br>
+                  <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+                      <div class="avatar"><img src="{{ post.author.profile.profile_pic.url}}" alt="..." class="img-fluid"></div>
+                      <div class="title"><span>{{ post.author.user }}</span></div></a>
+                    <div class="date"><i class="icon-clock"></i>{{post.date_posted|timesince}} ago</div>
+                    <div class="comments meta-last"><i class="icon-comment"></i></div>
+                  </footer>
+                </div>
+              </div>
+                {% endfor %}
+            </div>
+            <!-- Pagination -->
+
+
+
+
+            <nav aria-label="Page navigation example">
+              <ul class="pagination pagination-template d-flex justify-content-center">
+              {% if queryset.has_previous %}
+                <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+                {% endif %}
+                <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.number }}" class="page-link active">{{ queryset.number }}</a></li>
+
+                {% if queryset.has_next %}
+                <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+              {% endif %}
+              </ul>
+            </nav>
+          </div>
+        </main>
+
+<aside class="col-lg-4">
+          <!-- Widget [Search Bar Widget]-->
+
+          <!-- Widget [Latest Posts Widget]        -->
+
+          <!-- Widget [Categories Widget]-->
+
+
+
+        </aside>
+      </div>
+    </div>
+    <!-- Page Footer-->
+
+    {% endblock body %}

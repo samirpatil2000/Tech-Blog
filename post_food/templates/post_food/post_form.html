@@ -1,0 +1,21 @@
+{% extends "post_food/base.html"%}
+{% load crispy_forms_tags %}
+{% block body %}
+
+
+<div class="container">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="'border-bottom mb-4">Your Post </legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn-outline-info" type="submit"> Post </button>
+
+        </div>
+    </form>
+
+</div>
+
+{% endblock body %}

@@ -1,0 +1,136 @@
+
+{% extends 'post_food/base.html'%}
+
+
+  {% block body %}
+
+    <div class="container">
+      <div class="row">
+        <!-- Latest Posts -->
+        <main class="posts-listing col-lg-8"> 
+          <div class="container">
+            <div class="row">
+              <!-- post -->
+
+                {% for post in queryset %}
+              <div class="post col-xl-6">
+
+                 {% load static %}
+                <div class="post-thumbnail"><a href="{{ post.get_absolute_url }}"><img src="{{ post.thumbnail.url}}" alt="..."   width="200" height="200"></a></div>
+                <div class="post-details">
+<!--                  <div class="post-meta d-flex justify-content-between">-->
+<!--                    <div class="date meta-last">{{post.date_posted}}</div>-->
+<!--&lt;!&ndash;                      {% for cat in post.categories.all %}&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="category"><a href="{{ cat.get_absolute_url}}">{{cat.title}}</a></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                      {% endfor %}&ndash;&gt;-->
+<!--                  </div>-->
+                    <a href="#">
+                <header class="post-header">
+                  <div class="category">
+                    {% for cat in post.categories.all %}
+                      <a href="{{ cat.get_absolute_url }}">{{ cat.title }}</a>
+                    {% endfor %}
+                  </div>
+
+                    <h1 class="h4">{{ post.title }}</h1>
+                </header>
+<!--                    <h3 class="h4">{{ post.title }}</h3></a>-->
+                  <p class="text-muted">{{ post.content|linebreaks|truncatechars:100 }}</p>
+                          <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Continue Reading</a>
+                        <br>
+                  <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+                      <div class="avatar"><img src="{{ post.author.profile.profile_pic.url}}" alt="..." class="img-fluid"></div>
+                      <div class="title"><span>{{ post.author.user }}</span></div></a>
+                    <div class="date"><i class="icon-clock"></i>{{post.date_posted|timesince}} ago</div>
+                      <div class="views"><i class="icon-eye"></i> {{ post.view_count}}</div>
+                    <div class="comments meta-last"><i class="icon-comment"></i></div>
+                  </footer>
+                </div>
+
+              </div>
+                {% endfor %}
+            </div>
+            <!-- Pagination -->
+
+
+
+
+            <nav aria-label="Page navigation example">
+              <ul class="pagination pagination-template d-flex justify-content-center">
+              {% if queryset.has_previous %}
+                <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+                {% endif %}
+                <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.number }}" class="page-link active">{{ queryset.number }}</a></li>
+
+                {% if queryset.has_next %}
+                <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+              {% endif %}
+              </ul>
+            </nav>
+          </div>
+        </main>
+        {% include 'post_food/sidebar.html'  %}
+      </div>
+    </div>
+    <!-- Page Footer-->
+
+    {% endblock body %}
+<aside class="col-lg-4">
+          <!-- Widget [Search Bar Widget]-->
+          <div class="widget search">
+            <header>
+              <h3 class="h6">Search the blog</h3>
+            </header>
+            <form action="#" class="search-form">
+              <div class="form-group">
+                <input type="search" name="q" placeholder="What are you looking for?">
+                <button type="submit" class="submit"><i class="icon-search"></i></button>
+              </div>
+            </form>
+          </div>
+          <!-- Widget [Latest Posts Widget]        -->
+          <div class="widget latest-posts">
+            <header>
+              <h3 class="h6">Latest Posts</h3>
+            </header>
+            {% for obj in latest %}
+            <div class="blog-posts">
+              <a href="{{ obj.get_absolute_url }}">
+                  <div class="item d-flex align-items-center">
+                    <div class="image"><img src="{{ obj.thumbnail.url }}" alt="..." class="img-fluid"></div>
+                    <div class="title"><strong>{{obj.title}}</strong>
+                      <div class="d-flex align-items-center">
+                        <div class="views"><i class="icon-eye"></i>#</div>
+                        <div class="comments"><i class="icon-comment"></i>#</div>
+                      </div>
+                    </div>
+                  </div></a>
+              <a href="#"></a>
+            </div>
+            {% endfor %}
+          </div>
+          <!-- Widget [Categories Widget]-->
+          <div class="widget categories">
+            <header>
+              <h3 class="h6">Categories</h3>
+            </header>
+            {% for cat in category_count%}
+      <!--      <div class="item d-flex justify-content-between"><a href="#">{{ cat.title }}</a><span>12</span></div> -->
+           <div class="item d-flex justify-content-between"><a href="#">{{ cat.categories__title }}</a><span>{{ cat.categories__title__count}}</span></div>
+            {% endfor %}
+          </div>
+
+          <!-- Widget [Tags Cloud Widget]-->
+          <div class="widget tags">
+            <header>
+              <h3 class="h6">Tags</h3>
+            </header>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a href="#" class="tag">#Business</a></li>
+              <li class="list-inline-item"><a href="#" class="tag">#Technology</a></li>
+              <li class="list-inline-item"><a href="#" class="tag">#Fashion</a></li>
+              <li class="list-inline-item"><a href="#" class="tag">#Sports</a></li>
+              <li class="list-inline-item"><a href="#" class="tag">#Economy</a></li>
+            </ul>
+          </div>
+        </aside>
