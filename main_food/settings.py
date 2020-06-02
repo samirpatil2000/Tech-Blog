@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
     'crispy_forms',
     'post_food',
     'Users',
@@ -135,3 +136,18 @@ EMAIL_PORT=587
 EMAIL_USE_TLS=True
 EMAIL_HOST_USER='samirspatil742099@gmail.com'
 EMAIL_HOST_PASSWORD='Bluesam@123'
+
+
+
+
+
+AWS_ACCESS_KEY_ID = 'AKIA3NB2BLWVV67J7W7N'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'django-samir-blog'
+#
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+#
+#
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+

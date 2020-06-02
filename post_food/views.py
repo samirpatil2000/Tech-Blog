@@ -14,7 +14,8 @@ def get_category_count():
     queryset=Post.objects.values('categories__title').annotate(Count('categories__title'))
     return queryset
 
-
+def test(request):
+    return render(request,'post_food/ds.html')
 
 def home(request):
     context={
