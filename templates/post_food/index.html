@@ -120,9 +120,9 @@
                 <a href="{{ obj.get_absolute_url }}">
                 <h3 class="h4" >{{obj.title}}</h3></a>
                 <p class="text-muted" ><a href="{{ obj.get_absolute_url }}">{{obj.content|linebreaks|truncatechars:150 }}</a></p>
-                <button>
+
                     <a href="{{ obj.get_absolute_url }}" class="btn btn-primary" style="margin:10px;">Continue Reading</a>
-                </button>
+
             </div>
           </div>
             {% endfor %}
