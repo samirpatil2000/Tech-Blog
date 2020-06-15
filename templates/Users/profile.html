@@ -53,7 +53,7 @@ h1, h2, h3, h4, h5 {
   width: 100%;
 }
 .responsive {
-  width: 50%;
+  width: 30%;
   height: auto;
 }
 </style>
@@ -61,13 +61,16 @@ h1, h2, h3, h4, h5 {
 
 
 <div class="container">
-   <h2 style="margin-top:30px;" >{{ user.first_name }}  {{user.last_name}}  {{user.username}}</h2>
-   <a href="#"><img  style="margin-left:100px;" class="responsive"  align="center" src="{{ user.profile.profile_pic.url }}"  border="0" /></a>
+   <h2 style="margin-top:30px;" >{{ user.first_name }}  {{user.last_name}}    {{user.username}}</h2>
+    <a href="#"><img  style="margin-left:100px;" class="responsive"  align="center" src="{{ user.profile.profile_pic.url }}"  border="0" /></a>
+    <a> <h4> Name :  </h4> <h6>{{user.first_name }}  {{user.last_name}} </h6></a>
    <h4 style="margin-top:10px" >About Me </h4>
-   <p>Hi, I'm Dan Englishby, I have a huge passion for web-development and programming. I love to learn and thrive from challenges.</p>
+   <p>Hi, I'm Dan Englishby, I have a huge passion for web-development and programming. I love to learn and thrive from challenges.
+   {{user.profile.bio}}</p>
    <h4>Contact</h4>
 
    <p>Email : {{user.email}} </p>
+   <p>Phone : {{user.profile.phone_number}} </p>
 <!--   <div class="listFlex">-->
 <!--      <div>-->
 <!--         <ul>-->
@@ -94,7 +97,10 @@ h1, h2, h3, h4, h5 {
      <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="form-group">
-            <legend class="'border-bottom mb-4">Details</legend>
+
+
+                <legend class="border-bottom mb-4">Edit Profile</legend>
+
             {{ u_form|crispy }}
             {{ p_form|crispy }}
         </fieldset>
