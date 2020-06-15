@@ -6,7 +6,9 @@
 
     <!-- Hero Section-->
 {% load static %}
-    <section style="background: url({% static 'post_food/img/nasa.jpg'%}); background-size: cover; background-position: center center" class="hero">
+<section
+        style="background: url({% static '/img/nasa.jpg'%}); background-size: cover; background-position: center center"
+        class="hero" xmlns="http://www.w3.org/1999/html">
       <div class="container">
         <div class="row">
           <div class="col-lg-7">
@@ -32,7 +34,7 @@
         {% for object in object_list %}
         <div class="row d-flex align-items-stretch">
             {% if not forloop.first and not forloop.last %}
-            <div ><a href="{{ object.get_absolute_url }}"><img src="{{ object.thumbnail.url}}" alt="..."  width="300" height="400" ></a></div>
+            <div ><a href="{{ object.get_absolute_url }}"><img src="{{ object.thumbnail.url}}" alt="..." width="340" height="400" style="margin-left:30px; margin-right:0px"></a></div>
             {% endif %}
 
 
@@ -44,12 +46,13 @@
                     {% for cat in object.categories.all %}
                       <a href="{{ cat.get_absolute_url}}">{{ cat.title }}</a>
                     {% endfor %}
-                  </div>
+
                     <a href="{{ object.get_absolute_url }}">
                     <h2 class="h4">{{ object.title }}</h2></a>
+                  </div>
                 </header>
                   <p ><a href="{{ object.get_absolute_url }}">{{object.content|linebreaks|truncatechars:300}}</a></p>
-                   <a href="{{ object.get_absolute_url }}" class="btn btn-primary">Continue Reading</a>
+                   <a href="{{ object.get_absolute_url }}" class="btn btn-primary"> Continue Reading </a>
                 <footer class="post-footer d-flex align-items-center"><a href="{% url 'user-posts' object.author %}" class="author d-flex align-items-center flex-wrap">
 
 
@@ -65,7 +68,7 @@
             </div>
           </div>
             {% if forloop.first or forloop.last %}
-                <div ><img src="{{ object.thumbnail.url }}" alt="..." width="340" height="400"></div>
+                <div ><img src="{{ object.thumbnail.url }}" alt="..." style = "margin-left:20px; margin-right:0px" width="340" height="400"></div>
             {% endif %}
 
         </div>
@@ -77,11 +80,12 @@
       </div>
     </section>
     <!-- Divider Section-->
-    <section style="background: url({% static 'post_food/img/divider-bg.jpg' %}); background-size: cover; background-position: center bottom" class="divider">
+    <section style="background: url({% static '/img/divider-bg.jpg' %}); background-size: cover; background-position: center bottom" class="divider">
       <div class="container">
         <div class="row">
           <div class="col-md-7">
-            <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</h2><a href="#" class="hero-link">View More</a>
+            <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</h2>
+              <a href="#" class="hero-link">View More</a>
           </div>
         </div>
       </div>
@@ -96,7 +100,7 @@
         <div class="row">
             {% for obj in latest %}
           <div class="post col-md-4">
-            <div class="post-thumbnail"><a href="{{ obj.get_absolute_url }}"><img src="{{ obj.thumbnail.url }}" alt="..."  width="350" height="340"></a></div>
+            <div class="post-thumbnail"><a href="{{ obj.get_absolute_url }}"><img src="{{ obj.thumbnail.url }}" alt="..."  width="100%" height="auto"></a></div>
             <div class="post-details">
 <!--              <div class="post-meta d-flex justify-content-between">-->
 <!--                <div class="date">{{ obj.date_posted }}</div>-->
@@ -116,7 +120,9 @@
                 <a href="{{ obj.get_absolute_url }}">
                 <h3 class="h4" >{{obj.title}}</h3></a>
                 <p class="text-muted" ><a href="{{ obj.get_absolute_url }}">{{obj.content|linebreaks|truncatechars:150 }}</a></p>
-                <a href="{{ obj.get_absolute_url }}" class="btn btn-primary">Continue Reading</a>
+                <button>
+                    <a href="{{ obj.get_absolute_url }}" class="btn btn-primary" style="margin:10px;">Continue Reading</a>
+                </button>
             </div>
           </div>
             {% endfor %}
@@ -150,19 +156,19 @@
       <div class="row">
         <div class="mix col-lg-3 col-md-3 col-sm-6">
           {% load static %}
-          <div class="item"><a href="{% static 'post_food/img/gallery-1.jpg' %}" data-fancybox="gallery" class="image"><img src="{% static 'post_food/img/gallery-1.jpg' %}" alt="..." class="img-fluid">
+          <div class="item"><a href="{% static 'img/gallery-1.jpg' %}" data-fancybox="gallery" class="image"><img src="{% static 'img/gallery-1.jpg' %}" alt="..." class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
         </div>
         <div class="mix col-lg-3 col-md-3 col-sm-6">
-          <div class="item"><a href="{% static 'post_food/img/gallery-2.jpg' %}" data-fancybox="gallery" class="image"><img src="{% static 'post_food/img/gallery-2.jpg' %}" alt="..." class="img-fluid">
+          <div class="item"><a href="{% static 'img/gallery-2.jpg' %}" data-fancybox="gallery" class="image"><img src="{% static 'img/gallery-2.jpg' %}" alt="..." class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
         </div>
         <div class="mix col-lg-3 col-md-3 col-sm-6">
-          <div class="item"><a href="{% static 'post_food/img/gallery-3.jpg' %}" data-fancybox="gallery" class="image"><img src="{% static 'post_food/img/gallery-3.jpg' %}" alt="..." class="img-fluid">
+          <div class="item"><a href="{% static 'img/gallery-3.jpg' %}" data-fancybox="gallery" class="image"><img src="{% static 'img/gallery-3.jpg' %}" alt="..." class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
         </div>
         <div class="mix col-lg-3 col-md-3 col-sm-6">
-          <div class="item"><a href="{% static 'post_food/img/gallery-4.jpg' %}" data-fancybox="gallery" class="image"><img src="{% static 'post_food/img/gallery-4.jpg' %}" alt="..." class="img-fluid">
+          <div class="item"><a href="{% static 'img/gallery-4.jpg' %}" data-fancybox="gallery" class="image"><img src="{% static 'img/gallery-4.jpg' %}" alt="..." class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
         </div>
       </div>

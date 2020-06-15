@@ -3,37 +3,94 @@
 {% load crispy_forms_tags %}
 {% block body %}
 
+
+
 <!------ Include the above in your HEAD tag ---------->
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <div class="container">
-          <div class="row">
-              <div class="panel panel-default">
-              <div class="panel-heading">  <h4 >User Profile</h4></div>
-               <div class="panel-body">
-              <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-               <img alt="User Pic" src="{{ user.profile.profile_pic.url }}" id="profile-image1"  height="300" width="150" class="img-circle img-responsive">
-              </div>
-              <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
-                  <div class="container" >
-                    <!--<h2>{{ user.first_name }}  {{user.last_name}}</h2> -->
-                    <p>an   <b> </b></p>
+<!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>-->
+<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
+<!--<div style = "margin-left:0px; margin-right:0px">-->
+
+<!--              <div class="panel panel-default">-->
+<!--              <div class="panel-heading">  <h4 >User Profile</h4></div>-->
+<!--               <div class="panel-body">-->
+<!--              <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">-->
+<!--               <img alt="User Pic" style = "margin-left:0px;" src="{{ user.profile.profile_pic.url }}" id="profile-image1"  height="300" width="150" class="img-circle img-responsive">-->
+<!--              </div>-->
+<!--              <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >-->
+<!--                  <div class="container" >-->
+<!--                    &lt;!&ndash;<h2>{{ user.first_name }}  {{user.last_name}}</h2> &ndash;&gt;-->
+<!--                    <p>an   <b> </b></p>-->
 
 
-                  </div>
-                   <hr>
-                  <ul class="container details" >
-                    <li><p><span class="glyphicon glyphicon-user one" style="width:50px;"></span>{{user.username}}</p></li>
-                    <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>{{user.email}}</p></li>
-                  </ul>
-                  <hr>
-              </div>
-        </div>
-    </div>
-    </div>
+<!--                  </div>-->
+<!--                   <hr>-->
+<!--                  <ul class="container details" >-->
+<!--                    <li><p><span class="glyphicon glyphicon-user one" style="width:50px;"></span>{{user.username}}</p></li>-->
+<!--                    <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>{{user.email}}</p></li>-->
+<!--                  </ul>-->
+<!--                  <hr>-->
+<!--              </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</div>-->
+
+<style>body {background: #ececec;}
+h1, h2, h3, h4, h5 {
+  border-bottom: 1px solid #ccc;
+  color: #3F51B5;
+  padding-bottom: 8px
+}
+.containersam {
+  margin: auto;
+  width: auto;
+  text-align: center;
+}
+.listFlex {display: flex; justify-content: center;}
+
+.img {
+  width: 100%;
+}
+.responsive {
+  width: 50%;
+  height: auto;
+}
+</style>
 
 
+
+<div class="container">
+   <h2 style="margin-top:30px;" >{{ user.first_name }}  {{user.last_name}}  {{user.username}}</h2>
+   <a href="#"><img  style="margin-left:100px;" class="responsive"  align="center" src="{{ user.profile.profile_pic.url }}"  border="0" /></a>
+   <h4 style="margin-top:10px" >About Me </h4>
+   <p>Hi, I'm Dan Englishby, I have a huge passion for web-development and programming. I love to learn and thrive from challenges.</p>
+   <h4>Contact</h4>
+
+   <p>Email : {{user.email}} </p>
+<!--   <div class="listFlex">-->
+<!--      <div>-->
+<!--         <ul>-->
+<!--            <li>PHP</li>-->
+<!--            <li>HTML</li>-->
+<!--            <li>CSS</li>-->
+<!--         </ul>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--         <ul>-->
+<!--            <li>JavaScript</li>-->
+<!--            <li>JQuery</li>-->
+<!--            <li>C#</li>-->
+<!--         </ul>-->
+<!--      </div>-->
+<!--   </div>-->
+
+
+
+
+
+<!--<div style = "margin-left:70px; margin-right:70px">-->
+<div>
      <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="form-group">
@@ -45,5 +102,6 @@
             <button class="btn-outline-info" type="submit"> Update </button>
         </div>
     </form>
-    </div>
+</div>
+</div>
 {% endblock body %}

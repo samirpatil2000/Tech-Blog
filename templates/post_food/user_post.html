@@ -27,18 +27,21 @@
                   <div class="post-meta d-flex justify-content-between">
                     <div class="date meta-last">{{post.date_posted}}</div>
                       {% for cat in post.categories.all %}
-                    <div class="category"><a href="#">{{cat.title}}</a></div>
+<!--                    <div class="category"><a href="#">{{cat.title}}</a></div>-->
                       {% endfor %}
                   </div>
                     <a href="#">
                     <h3 class="h4">{{ post.title }}</h3></a>
-                  <p class="text-muted">{{ post.content|linebreaks|truncatechars:100 }}</p>
-                  <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
-                      <div class="avatar"><img src="{{ post.author.profile_pic.url}}" alt="..." class="img-fluid"></div>
-                      <div class="title"><span>{{ post.author.user }}</span></div></a>
-                    <div class="date"><i class="icon-clock"></i>{{post.date_posted|timesince}} ago</div>
-                    <div class="comments meta-last"><i class="icon-comment"></i></div>
-                  </footer>
+                  <p class="text-muted">{{ post.content|linebreaks|truncatechars:200 }}</p>
+                    <a href="{{ post.get_absolute_url }}" style="margin-bottom:8px;" class="btn btn-primary">Continue Reading</a>
+                        <br>
+<!--                  <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">-->
+<!--                      <div class="avatar"><img src="{{ post.author.profile_pic.url}}" alt="..." class="img-fluid"></div>-->
+<!--                      <div class="title"><span>{{ post.author.user }}</span></div></a>-->
+<!--                    <div class="date"><i class="icon-clock"></i>{{post.date_posted|timesince}} ago</div>-->
+<!--                    <div class="views"><i class="icon-eye"></i> {{ post.view_count}} </div>-->
+<!--                    <div class="comments meta-last"><i class="icon-comment"></i></div>-->
+<!--                  </footer>-->
                 </div>
               </div>
                 {% endfor %}
@@ -69,10 +72,14 @@
           <!-- Widget [Latest Posts Widget]        -->
           <div class="widget latest-posts">
             <header>
+<!--                <h2 style="margin-top:30px;" >{{ user.first_name }}  {{user.last_name}}  {{user.username}}</h2>-->
               <h3 class="h6">{{posts.0.author.username}}</h3>
+
             </header>
 
               <img alt="User Pic" src="{{ posts.0.author.profile.profile_pic.url }}" id="profile-image1" class="img-circle img-responsive" width="200" height="200">
+                                 <h4 style="margin-top:10px" >About {{posts.0.author.username}} </h4>
+                   <p>Hi, I'm Dan Englishby, I have a huge passion for web-development and programming. I love to learn and thrive from challenges.</p>
           </div>
           <!-- Widget [Categories Widget]-->
 

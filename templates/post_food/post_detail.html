@@ -56,7 +56,7 @@
                   </div>
                 </div>
                 <div class="post-body">
-                    <h6>{{ post.content | safe}}</h6>
+                    <p>{{ post.content|safe}}</p>
                 </div>
                 <div class="posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row">
                 {% if post.previous_post %}
@@ -80,25 +80,25 @@
 <!--                  <header>-->
 <!--                    <h3 class="h6">Post Comments<span class="no-of-comments">({{ post.comments.count }})</span></h3>-->
 <!--                  </header>-->
-                  {% for comment in post.get_comments %}
-<!--                  <div class="comment">-->
-<!--                    <div class="comment-header d-flex justify-content-between">-->
-<!--                      <div class="user d-flex align-items-center">-->
-<!--                        <div class="image">-->
-<!--                          {% if comment.user.author %}-->
-<!--                          <img src="{{ comment.user.author.profile_picture.url }}" alt="..." class="img-fluid rounded-circle">-->
-<!--                          {% else %}-->
-<!--                          <img src="{% static 'img/user.svg' %}" alt="..." class="img-fluid rounded-circle">-->
-<!--                          {% endif %}-->
-<!--                        </div>-->
-<!--                        <div class="title"><strong>{{ comment.user.username }}</strong><span class="date">{{ comment.timestamp|timesince }} ago</span></div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                    <div class="comment-body">-->
-<!--                      <p>{{ comment.content }}</p>-->
-<!--                    </div>-->
-<!--                  </div>-->
-                  {% endfor %}
+<!--                  {% for comment in post.get_comments %}-->
+<!--&lt;!&ndash;                  <div class="comment">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="comment-header d-flex justify-content-between">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <div class="user d-flex align-items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="image">&ndash;&gt;-->
+<!--&lt;!&ndash;                          {% if comment.user.author %}&ndash;&gt;-->
+<!--&lt;!&ndash;                          <img src="{{ comment.user.author.profile_picture.url }}" alt="..." class="img-fluid rounded-circle">&ndash;&gt;-->
+<!--&lt;!&ndash;                          {% else %}&ndash;&gt;-->
+<!--&lt;!&ndash;                          <img src="{% static 'img/user.svg' %}" alt="..." class="img-fluid rounded-circle">&ndash;&gt;-->
+<!--&lt;!&ndash;                          {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="title"><strong>{{ comment.user.username }}</strong><span class="date">{{ comment.timestamp|timesince }} ago</span></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="comment-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <p>{{ comment.content }}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--                  {% endfor %}-->
 
 
 <!--                <div class="add-comment">-->
