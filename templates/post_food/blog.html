@@ -39,7 +39,8 @@
 
                           <a href="{{ post.get_absolute_url }}" style="margin-bottom:8px;" class="btn btn-primary">Continue Reading</a>
                         <br>
-                  <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+
+                  <footer class="post-footer d-flex align-items-center"><a href="{% url 'user-posts' post.author %}" class="author d-flex align-items-center flex-wrap">
                       <div class="avatar"><img src="{{ post.author.profile.profile_pic.url}}" alt="..." class="img-fluid"></div>
                       <div class="title"><span>{{ post.author.user }}</span></div></a>
                     <div class="date"><i class="icon-clock"></i>{{post.date_posted|timesince}} ago</div>
