@@ -15,7 +15,8 @@ urlpatterns = [
     #
     path('post/Cat/<int:id>/', CategaryPostLisView.as_view(), name='cat-posts'),
 
-    path('create/',PostCreateView.as_view(),name='post-create'),
+  #  path('create/',PostCreateView.as_view(),name='post-create'),
+    path('create/',views.add_post,name='post-create'),
     path('post/<int:pk>/update/',PostUpdateView.as_view(),name='post-update'),
     path('post/<int:pk>/delete/',PostDeleteView.as_view(),name='post-delete'),
     path('test/',views.test,name='test'),

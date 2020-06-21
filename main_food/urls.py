@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('post_food.urls')),
     path('U/',include('Users.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('login/',auth_views.LoginView.as_view(template_name='Users/login.html'),name='login'),
     path('logout/',auth_views.LogoutView.as_view(template_name='Users/logout.html'),name='logout'),
     path('password-reset/',

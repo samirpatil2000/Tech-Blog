@@ -1,4 +1,5 @@
 from PIL import Image
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 
 # Create your models here.
@@ -21,7 +22,8 @@ class Category(models.Model):
 class Post(models.Model):
     id_of_post=models.AutoField
     title=models.CharField(max_length=100)
-    content=models.TextField()
+  #  content=models.TextField()
+    content= RichTextUploadingField()
     date_posted=models.DateTimeField(default=timezone.now())
     author=models.ForeignKey(User,on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category)

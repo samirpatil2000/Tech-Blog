@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     'crispy_forms',
     'post_food',
     'Users',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -101,6 +105,29 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+CKEDITOR_CONFIGS = { 'default':
+                         { 'toolbar': 'Custom', 'height': 500,'width':'auto' ,'toolbar_Custom':
+                             [
+                                 ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'SpellChecker', 'Undo', 'Redo'],
+                                 ['Link', 'Unlink', 'Anchor'],
+                                 ['Image', 'Flash', 'Table', 'HorizontalRule'],
+                                 ['TextColor', 'BGColor'],
+                                 ['Smiley', 'SpecialChar'],
+                                 ['Source'],
+                             ],
+                           }, 'special':
+                    { 'toolbar': 'Special', 'toolbar_Special':
+                            [
+                             ['Bold'],
+                            ],
+                          }
+                     }
+
+
+
+
 
 
 # Internationalization

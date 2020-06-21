@@ -1,10 +1,13 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Count
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from.models import Post,Category,PostView
 from django.views.generic import ListView , DetailView,CreateView,UpdateView,DeleteView
+from .forms import PostForm
+
 
 # Create your views here.
 
@@ -135,10 +138,28 @@ class PostDetailView(DetailView):
 
 class PostCreateView(CreateView):
     model = Post
-    fields = ['title','content','thumbnail']
+    fields = ['title','content','thumbnail','categories']
     def form_valid(self, form):
         form.instance.author=self.request.user
         return super().form_valid(form)
+
+
+
+@login_required
+def add_post(request):
+    form = PostForm(request.POST or None, request.FILES or None)
+    if request.method == "POST":
+
+        if form.is_valid():
+            form.instance.author = request.user
+            post_item = form.save(commit=False)
+            post_item.save()
+            return redirect('index')
+    #     else:
+    #         return render(request, 'post_food/post_form.html', {'form': form})
+    # else:
+    #     form = PostForm()
+    return render(request, 'post_food/post_form.html', {'form': form})
 
 
 class PostUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):

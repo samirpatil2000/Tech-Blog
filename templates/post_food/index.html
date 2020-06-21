@@ -58,7 +58,7 @@
 
           {% load static %}
                     <div class="avatar"><img src="{{ object.author.profile.profile_pic.url }}" alt="..." class="img-fluid"></div>
-                    <div class="title" ><span>{{object.author}}</span></div></a>
+                    <div class="title" ><span>{{object.author.first_name}} {{object.author.last_name}}</span></div></a>
                   <div class="date"><i class="icon-clock"></i> {{object.date_posted|timesince}} ago </div>
                     <div class="views"><i class="icon-eye"></i> {{ object.view_count}}</div>
                   <div class="comments"><i class="icon-comment"></i>#</div>
