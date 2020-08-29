@@ -52,7 +52,7 @@
 
             {% elif user.is_authenticated %}
                 <a class="nav-item nav-link" href="{% url 'logout' %}">LogOut</a>
-                <a class="nav-item nav-link" href="#">Join Us</a>
+                <a class="nav-item nav-link" href="{% url 'join_us' %}">Join Us</a>
             {% else %}
                 <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
                 <a class="nav-item nav-link" href="{% url 'login' %}">SignIn</a>

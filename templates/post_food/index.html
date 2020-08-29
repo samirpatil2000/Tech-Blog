@@ -12,7 +12,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-7">
-            <h1>Welcome ... </h1><a href="#" class="hero-link">Discover More</a>
+
+              <h1 style="font-size:50px"> Enjoy writing your own opinion and write creative content </h1><a href="{% url 'blogs' %}" class="hero-link"> <strong> Discover Blogs </strong> </a>
           </div>
         </div><a href=".intro" class="continue link-scroll"><i class="fa fa-long-arrow-down"></i> Scroll Down</a>
       </div>
@@ -22,8 +23,10 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
-            <h2 class="h3">Some great intro here</h2>
-            <p class="text-big">Place a nice <strong>introduction</strong> here <strong>to catch reader's attention</strong>. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
+            <h2 class="h3">Curiosity Is Here</h2>
+<!--            <p class="text-big"> Place a nice <strong>introduction</strong> here <strong>to catch reader's attention</strong>. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>-->
+              <p class="text-big"><strong>Curiosity Is Here</strong> Is giving you the best <strong> opportunity </strong> to write your own content anything about <strong> Science and Technology </strong>. As you can write your <strong> Opinion </strong> about <strong> Concept </strong> in Science and Technology . In science you can write about any Topic in Chemistry , Physics and Maths and also about Upcoming Technology . </p>
+
           </div>
         </div>
       </div>
@@ -80,12 +83,12 @@
       </div>
     </section>
     <!-- Divider Section-->
-    <section style="background: url({% static '/img/divider-bg.jpg' %}); background-size: cover; background-position: center bottom" class="divider">
+    <section style="background: url({% static 'dividerpg.jpg' %}); background-size: cover; background-position: center bottom" class="divider">
       <div class="container">
         <div class="row">
           <div class="col-md-7">
-            <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</h2>
-              <a href="#" class="hero-link">View More</a>
+            <h2> If you want to join us and right interesting post </h2>
+              <a href="{% url 'join_us' %}" class="hero-link">Join Us</a>
           </div>
         </div>
       </div>
@@ -130,27 +133,27 @@
       </div>
     </section>
     <!-- Newsletter Section-->
-    <section class="newsletter no-padding-top">    
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h2>Subscribe to Newsletter</h2>
-            <p class="text-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-          <div class="col-md-8">
-            <div class="form-holder">
-              <form action="." method="POST">
-                  {% csrf_token%}
-                <div class="form-group">
-                  <input type="email" name="email" id="email" placeholder="Type your email address">
-                  <button type="submit" class="submit">Subscribe</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!--    <section class="newsletter no-padding-top">    -->
+<!--      <div class="container">-->
+<!--        <div class="row">-->
+<!--          <div class="col-md-6">-->
+<!--            <h2>Subscribe to Newsletter</h2>-->
+<!--            <p class="text-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+<!--          </div>-->
+<!--          <div class="col-md-8">-->
+<!--            <div class="form-holder">-->
+<!--              <form action="." method="POST">-->
+<!--                  {% csrf_token%}-->
+<!--                <div class="form-group">-->
+<!--                  <input type="email" name="email" id="email" placeholder="Type your email address">-->
+<!--                  <button type="submit" class="submit">Subscribe</button>-->
+<!--                </div>-->
+<!--              </form>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
     <!-- Gallery Section-->
     <section class="gallery no-padding">    
       <div class="row">

@@ -9,6 +9,7 @@ urlpatterns = [
     path('h/',PostListView.as_view(),name='home'),
     path('',views.index,name='index'),
     path('blog/',views.blog,name='blogs'),
+    path('join_us/',views.join_us,name='join_us'),
     path('post/<int:id>/',views.post,name='post-details'),
    # path('post/<int:pk>/',PostDetailView.as_view(),name='post-details'),
     path('post/<str:username>/', UserPostListView.as_view(), name='user-posts'),

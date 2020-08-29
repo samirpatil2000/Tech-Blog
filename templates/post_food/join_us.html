@@ -1,0 +1,20 @@
+{% extends 'post_food/base.html'%}
+{% load crispy_forms_tags %}
+
+  {% block body %}
+<div class="container">
+    <br>
+    <br>
+     <h4 > If You Want To Join Us and Right Interesting Post Then Welcome </h4>
+    <h5>Then email us to join and writing the post <p> <strong>samirspatil2000@gmail.com</strong></p></h5>
+    <br>
+    <h1>Contact</h1>
+    <form role="form" action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+{% endblock %}
