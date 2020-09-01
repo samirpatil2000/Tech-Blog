@@ -1,5 +1,5 @@
 """
-WSGI config for main_food project.
+WSGI config for Recent_One project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'main_food.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Recent_One.settings')
 
 application = get_wsgi_application()

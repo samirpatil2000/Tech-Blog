@@ -1,4 +1,4 @@
-"""main_food URL Configuration
+"""Recent_One URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
